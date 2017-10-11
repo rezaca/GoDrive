@@ -1,0 +1,9 @@
+#logIn-section, #requirements-section, #log-section, #log-list {
+    border: 3px solid black;
+    height: 700px;
+}
+
+button {
+    width: 200px;
+    height: 100px;
+}
