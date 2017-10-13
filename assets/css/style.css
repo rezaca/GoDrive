@@ -249,24 +249,6 @@ hr.small {
     margin: 10px;
 }
 
-
-/* Map */
-
-.map {
-    height: 500px;
-}
-
-@media(max-width:768px) {
-    .map {
-        height: 75%;
-    }
-}
-
-.map iframe {
-    pointer-events: none;
-}
-
-
 /* Footer */
 
 footer {
@@ -279,9 +261,10 @@ button {
 }
 
 #map {
-    height: 400px;
-    width: 500px;
-    float: right;
+    height: 500px;
+    width: 100%;
+}
+
 #to-top {
     font-size: 1em;
     position: fixed;

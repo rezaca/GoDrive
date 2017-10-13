@@ -1,14 +1,4 @@
-//var API_Key = "AIzaSyB0HU5xMTp4T0uJJB2XBHsPeh1OWxAmBg4";
-
-// var queryURL = "https://maps.googleapis.com/maps/api/js?key=AIzaSyB0HU5xMTp4T0uJJB2XBHsPeh1OWxAmBg4&callback=initMap";
-
-// $.ajax({
-//     url: queryURL,
-//     method: "GET"
-// }).done(function (response) {
-//     console.log(response);
-// });
-
+//var API_Key = "AIzaSyBtXBuh8qLYNrXlPIcOu_ogT-PcbLx0Zck";
 
 // INITIATE GOOGLE MAP
 function initMap() {
@@ -78,6 +68,7 @@ $("#add-account").on("click", function (event) {
     var accName = $("#account-name").val().trim();
     var accEmail = $("#account-email").val().trim();
     var accPassword = $("#account-password").val().trim();
+    var verifyPassword = $("#verifyPassword").val().trim();
 
     // Creates local object for holding account data
     var newAccount = {
