@@ -21,6 +21,10 @@ var queryURL = "https://maps.googleapis.com/maps/api/js?key=AIzaSyB0HU5xMTp4T0uJ
 //     });
 // }
 
+
+  
+
+
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyCjHRGiUjezd6cX9yf7Ci-U4drbZOIxXa4",
@@ -136,6 +140,7 @@ $("#add-log").on("click", function(event) {
     $("#log-hours").val("");
     $("#log-weather").val("");
 });
+
 
 
 
