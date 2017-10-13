@@ -34,6 +34,17 @@ ul {
     padding: 0;
 }
 
+/* Account Form Styles */
+
+form {
+    display: inline-block;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .5);
+    color: white;
+    width: 25%;
+    padding: 20px;
+}
+
 
 /* Custom Button Styles */
 
@@ -262,7 +273,6 @@ footer {
     padding: 100px 0;
 }
 
-<<<<<<< HEAD
 button {
     width: 200px;
     height: 100px;
@@ -272,7 +282,6 @@ button {
     height: 400px;
     width: 500px;
     float: right;
-=======
 #to-top {
     font-size: 1em;
     position: fixed;
@@ -280,5 +289,4 @@ button {
     bottom: 5px;
     display: none;
     padding: 15px 20px;
->>>>>>> 6d3615c212b1121f410f75cebefa8edce1d5be6e
 }
