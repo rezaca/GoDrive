@@ -1,9 +1,7 @@
 //var API_Key = "AIzaSyB0HU5xMTp4T0uJJB2XBHsPeh1OWxAmBg4";
 
-var queryURL = "https://maps.googleapis.com/maps/api/js?key=AIzaSyB0HU5xMTp4T0uJJB2XBHsPeh1OWxAmBg4&callback=initMap";
+// var queryURL = "https://maps.googleapis.com/maps/api/js?key=AIzaSyB0HU5xMTp4T0uJJB2XBHsPeh1OWxAmBg4&callback=initMap";
 
-
-// AJAX CALL
 // $.ajax({
 //     url: queryURL,
 //     method: "GET"
@@ -12,14 +10,44 @@ var queryURL = "https://maps.googleapis.com/maps/api/js?key=AIzaSyB0HU5xMTp4T0uJ
 // });
 
 
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
+var map;
+
 // INITIATE GOOGLE MAP
-// var map;
-// function initMap() {
-//     map = new google.maps.Map(document.getElementById('map'), {
-//         center: { lat: -34.397, lng: 150.644 },
-//         zoom: 8
-//     });
-// }
+function initMap() {
+    var uluru = { lat: 35.2271, lng: -80.8431 };
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: uluru
+    });
+    var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+    });
+    console.log(google.maps);
+
+    directionsDisplay = new google.maps.DirectionsRenderer();
+    map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    directionsDisplay.setMap(map);
+    directionsDisplay.setPanel(document.getElementById('directionsPanel'));
+
+}
+
+function calcRoute() {
+    var start = document.getElementById('start').value;
+    var end = document.getElementById('end').value;
+    var request = {
+        origin: start,
+        destination: end,
+        travelMode: 'DRIVING'
+    };
+    directionsService.route(request, function (response, status) {
+        if (status == 'OK') {
+            directionsDisplay.setDirections(response);
+        }
+    });
+}
 
 // Initialize Firebase
 var config = {
@@ -37,7 +65,7 @@ var database = firebase.database();
 
 
 // Button for adding users account
-$("#add-account").on("click", function(event) {
+$("#add-account").on("click", function (event) {
     event.preventDefault();
 
     // Grabs users input
@@ -50,7 +78,7 @@ $("#add-account").on("click", function(event) {
         name: accName,
         email: accEmail,
         password: accPassword
-    } 
+    }
 
     // Uploads employee data to the database
     database.ref().push(newAccount);
@@ -76,7 +104,7 @@ database.ref().on("child_added", function (childSnapshot, prevChildKey) {
 
 // Button to add users requirements 
 
-$("#add-requirements").on("click", function(event) {
+$("#add-requirements").on("click", function (event) {
 
     event.preventDefault();
 
@@ -103,12 +131,12 @@ $("#add-requirements").on("click", function(event) {
     $("#required-nightHours").val("");
     $("#required-hwyHours").val("");
     $("#required-rainHours").val("");
-    
+
 });
 
 // Button for adding users log 
 
-$("#add-log").on("click", function(event) {
+$("#add-log").on("click", function (event) {
 
     event.preventDefault();
 
