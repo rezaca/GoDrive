@@ -56,8 +56,10 @@
     <!-- Header -->
     <header class="header" id="top">
       <div class="text-vertical-center">
-        <h1>GoDrive</h1>
-        <h3>NC DMV Online Driver's Log</h3>
+        <img src="assets/images/godrive.png" alt="GoDrive Logo" style="width:auto;height:150px;">
+        <!-- <h1>GoDrive</h1> -->
+        <!-- <h3>NC DMV Online Driver's Log</h3> -->
+        <br>
         <br>
         <a href="#about" class="btn btn-dark btn-lg js-scroll-trigger">Log In</a>
       </div>
@@ -81,41 +83,119 @@
       <!-- /.container -->
     </section>
 
+    <!-- Callout -->
+    <aside class="callout">
+        <div class="row">
+            <div class="col-md-12">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Current Driver's Log</h3>
+                </div>
+                 <div class="panel-body">
+                  <table class="table table-hover table-responsive" id="trainTable" style="background-color: none !important; color: none">
+                  <thead>
+                    <tr>
+                      <th>Date (MM/DD)</th>
+                      <th>Day/Night</th>
+                      <th>Sunny/Rain</th>
+                      <th>Highway/City</th>
+                      <th>Total Hours</th>
+                    </tr>
+                  </thead>
+                  <tbody id="trainTable">
+                    <tr></tr>
+                  </tbody>
+                  </table>
+                 </div> <!-- Panel Body End -->
+              </div> <!-- Panel Default End -->
+            </div> <!-- Col End -->
+        
+            <div class="col-md-12">
+              <div class="panel panel-primary">
+                <br>
+                <div class="panel-heading">
+                  <h3 class="panel-title">Drive Entry</h3>
+                </div>
+                 <div class="panel-body">
+                   <form>
+                     <div class="form-group">
+                        <label for="name">Date (MM/DD) </label>
+                        <input type="text" class="form-control" id="nameInput" placeholder="01/01">
+                    </div>
+                    <div class="form-group">
+                        <label for="dest">Day/Night</label>
+                        <input type="text" class="form-control" id="destInput" placeholder="Day">
+                    </div>
+                    <div class="form-group">
+                        <label class="nextTrain" for="nextTrain">Sunny/Rain</label>
+                        <!-- <label class="milTime">&nbsp;(HH:mm - Military)</label> -->
+                        <input type="" class="form-control" id="timeInput" placeholder="Rain">
+                    </div>
+                    <div class="form-group">
+                        <label for="minsAway">Highway/City</label>
+                        <input type="text" class="form-control" id="freqInput" placeholder="Highway">
+                    </div>
+                    <div class="form-group">
+                        <label for="minsAway">Total Hours (Round to nearest half hour)</label>
+                        <input type="text" class="form-control" id="freqInput" placeholder="1.5">
+                    </div>
+
+                    <button type="submit" class="btn btn-default" id="submit">Submit</button>
+        
+                    <!-- <button type="submit" class="btn btn-default" id="removeTain">Remove</button> -->
+                  </form>
+                 </div> <!-- Panel Body End -->
+              </div> <!-- Panel Default End -->
+            </div> <!-- Col End -->
+          </div> <!-- Row End -->
+        <!-- <div class="text-vertical-center">
+          <h1>Vertically Centered Text</h1>
+        </div> -->
+    </aside>
+
     <!-- Services -->
-    <section id="services" class="services bg-primary text-white">
+    <!-- <section id="services" class="services bg-primary text-white">
       <div class="container">
         <div class="row text-center">
           <div class="col-lg-10 mx-auto">
-            <h2>Our Services</h2>
+            <h2>Select Your Current Driving Conditions</h2>
             <hr class="small">
             <div class="row">
-              <div class="col-md-3 col-sm-6">
+              <div class="col-md-6 col-sm-6">
                 <div class="service-item">
                   <span class="fa-stack fa-4x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-cloud fa-stack-1x text-primary"></i>
+                    <img src="assets/images/daynight.png" alt="daynight icon" style="width:auto;height:auto;"> -->
+                    <!-- <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-cloud fa-stack-1x text-primary"></i> -->
                   </span>
-                  <h4>
+                  <!-- <h4>
                     <strong>Service Name</strong>
-                  </h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  </h4> -->
+                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
+                  <!-- <br>
+                  <br>
+                  <br>
                   <a href="#" class="btn btn-light">Learn More</a>
                 </div>
               </div>
-              <div class="col-md-3 col-sm-6">
+              <div class="col-md-6 col-sm-6">
                 <div class="service-item">
                   <span class="fa-stack fa-4x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-compass fa-stack-1x text-primary"></i>
+                      <img src="assets/images/sunrain.png" alt="sunrain icon" style="width:auto;height:auto;"> -->
+                    <!-- <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-compass fa-stack-1x text-primary"></i> -->
                   </span>
-                  <h4>
+                  <!-- <h4>
                     <strong>Service Name</strong>
                   </h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
+                  <!-- <br>
+                  <br>
+                  <br>
                   <a href="#" class="btn btn-light">Learn More</a>
                 </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
+              </div> -->
+              <!-- <div class="col-md-3 col-sm-6">
                 <div class="service-item">
                   <span class="fa-stack fa-4x">
                     <i class="fa fa-circle fa-stack-2x"></i>
@@ -126,9 +206,9 @@
                   </h4>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                   <a href="#" class="btn btn-light">Learn More</a>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
+                </div> -->
+              <!-- </div>
+              <div class="col-md-6 col-sm-6">
                 <div class="service-item">
                   <span class="fa-stack fa-4x">
                     <i class="fa fa-circle fa-stack-2x"></i>
@@ -141,7 +221,7 @@
                   <a href="#" class="btn btn-light">Learn More</a>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- /.row (nested) -->
           </div>
           <!-- /.col-lg-10 -->
@@ -151,15 +231,10 @@
       <!-- /.container -->
     </section>
 
-    <!-- Callout -->
-    <aside class="callout">
-      <div class="text-vertical-center">
-        <h1>Vertically Centered Text</h1>
-      </div>
-    </aside>
+    
 
     <!-- Portfolio -->
-    <section id="portfolio" class="portfolio">
+    <!-- <section id="portfolio" class="portfolio">
       <div class="container">
         <div class="row">
           <div class="col-lg-10 mx-auto text-center">
@@ -194,9 +269,9 @@
                   </a>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- /.row (nested) -->
-            <a href="#" class="btn btn-dark">View More Items</a>
+            <!-- <a href="#" class="btn btn-dark">View More Items</a> -->
           </div>
           <!-- /.col-lg-10 -->
         </div>
@@ -208,9 +283,17 @@
     <!-- Call to Action -->
     <aside class="call-to-action bg-primary text-white">
       <div class="container text-center">
-        <h3>The buttons below are impossible to resist.</h3>
-        <a href="#" class="btn btn-lg btn-light">Click Me!</a>
-        <a href="#" class="btn btn-lg btn-dark">Look at Me!</a>
+        <h3>Choose your start and end points.</h3>
+        <!-- <a href="#" class="btn btn-lg btn-light">Click Me!</a>
+        <a href="#" class="btn btn-lg btn-dark">Look at Me!</a> -->
+        <div class="form-group">
+            <label for="minsAway">Start</label>
+            <input type="text" class="form-control" id="freqInput">
+        </div>
+        <div class="form-group">
+            <label for="minsAway">End</label>
+            <input type="text" class="form-control" id="freqInput">
+        </div>  
       </div>
     </aside>
 
@@ -228,7 +311,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-10 mx-auto text-center">
-            <h4>
+            <!-- <h4>
               <strong>Start Bootstrap</strong>
             </h4>
             <p>3481 Melrose Place
@@ -259,9 +342,9 @@
                   <i class="fa fa-dribbble fa-fw fa-3x"></i>
                 </a>
               </li>
-            </ul>
+            </ul> -->
             <hr class="small">
-            <p class="text-muted">Copyright &copy; Your Website 2017</p>
+            <p class="text-muted">Copyright &copy; GoDrive 2017</p>
           </div>
         </div>
       </div>

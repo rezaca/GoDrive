@@ -194,14 +194,14 @@ hr.small {
 }
 
 
-/* Callout */
-
 .callout {
     display: table;
+    padding: 50px;
     width: 100%;
     height: 400px;
     color: #fff;
-    background: url(../images/callout.jpg) no-repeat center center scroll;
+    /*background: url(../images/street.jpeg) no-repeat center center scroll;*/
+    background-color: #939597;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
