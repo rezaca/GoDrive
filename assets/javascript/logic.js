@@ -1,28 +1,19 @@
-//var API_Key = "AIzaSyB0HU5xMTp4T0uJJB2XBHsPeh1OWxAmBg4";
-
-var queryURL = "https://maps.googleapis.com/maps/api/js?key=AIzaSyB0HU5xMTp4T0uJJB2XBHsPeh1OWxAmBg4&callback=initMap";
-
-
-// AJAX CALL
-// $.ajax({
-//     url: queryURL,
-//     method: "GET"
-// }).done(function (response) {
-//     console.log(response);
-// });
-
+//var API_Key = "AIzaSyBtXBuh8qLYNrXlPIcOu_ogT-PcbLx0Zck";
 
 // INITIATE GOOGLE MAP
-// var map;
-// function initMap() {
-//     map = new google.maps.Map(document.getElementById('map'), {
-//         center: { lat: -34.397, lng: 150.644 },
-//         zoom: 8
-//     });
-// }
+function initMap() {
+    var uluru = { lat: 35.2271, lng: -80.8431 };
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: uluru
+    });
+    var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+    });
+    console.log(google.maps);
+}
 
-
-  
 
 
 // Initialize Firebase
@@ -39,22 +30,25 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
+// Log in/ Create account 
+
 
 // Button for adding users account
-$("#add-account").on("click", function(event) {
+$("#add-account").on("click", function (event) {
     event.preventDefault();
 
     // Grabs users input
     var accName = $("#account-name").val().trim();
     var accEmail = $("#account-email").val().trim();
     var accPassword = $("#account-password").val().trim();
+    var verifyPassword = $("#verifyPassword").val().trim();
 
     // Creates local object for holding account data
     var newAccount = {
         name: accName,
         email: accEmail,
         password: accPassword
-    } 
+    }
 
     // Uploads employee data to the database
     database.ref().push(newAccount);
@@ -69,18 +63,9 @@ $("#add-account").on("click", function(event) {
 
 });
 
-database.ref().on("child_added", function (childSnapshot, prevChildKey) {
-
-    var accName = childSnapshot.val().name;
-    var accEmail = childSnapshot.val().email;
-    var accPassword = childSnapshot.val().password;
-
-
-});
-
 // Button to add users requirements 
 
-$("#add-requirements").on("click", function(event) {
+$("#add-requirements").on("click", function (event) {
 
     event.preventDefault();
 
@@ -107,12 +92,12 @@ $("#add-requirements").on("click", function(event) {
     $("#required-nightHours").val("");
     $("#required-hwyHours").val("");
     $("#required-rainHours").val("");
-    
+
 });
 
 // Button for adding users log 
 
-$("#add-log").on("click", function(event) {
+$("#add-log").on("click", function (event) {
 
     event.preventDefault();
 
@@ -140,6 +125,68 @@ $("#add-log").on("click", function(event) {
     $("#log-hours").val("");
     $("#log-weather").val("");
 });
+
+
+// Password encryption 
+
+// var pass = new Array()
+// var t3 = ""
+// var lim = 5
+// pass[0] = "S6yrBG9mrTAL5Bz"
+// pass[1] = "2tf3gGluctEZwha"
+// pass[2] = "eicJNnfyHXjTpxr"
+// pass[3] = "SPFG5ce2HHosLyn"
+// pass[4] = "5AdQ529xqMYNQzQV"
+// pass[5] = "36AdQ529xqMYNQzQ"
+
+// //configure extension to reflect the extension type of the target web page (ie: .htm or .html)
+// var extension = ".html"
+// var enablelocking = 0
+// var numletter = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+// var temp3 = ''
+// var cur = 0
+
+
+// function max(which) {
+//     return (pass[Math.ceil(which) + (3 & 15)].substring(0, 1))
+// }
+
+// function testit(input) {
+//     temp = numletter.indexOf(input)
+//     var temp2 = temp ^ parseInt(pass[phase1 - 1 + (1 | 3)].substring(0, 2))
+//     temp2 = numletter.substring(temp2, temp2 + 1)
+//     return (temp2)
+// }
+
+
+// function submitentry() {
+//     t3 = ''
+//     verification = document.password1.password2.value
+//     phase1 = Math.ceil(Math.random()) - 6 + (2 << 2)
+//     var indicate = true
+//     for (i = (1 & 2); i < window.max(Math.LOG10E); i++)
+//         t3 += testit(verification.charAt(i))
+//     for (i = (1 & 2); i < lim; i++) {
+//         if (t3.charAt(i) != pass[phase1 + Math.round(Math.sin(Math.PI / 2) - 1)].charAt(i))
+//             indicate = false
+//     }
+//     if (verification.length != window.max(Math.LOG10E))
+//         indicate = false
+//     if (indicate)
+//         window.location = verification + extension
+//     else
+//         alert("Invalid password. Please try again")
+// }
+
+// Firebase reference 
+database.ref().on("child_added", function (childSnapshot, prevChildKey) {
+
+    var accName = childSnapshot.val().name;
+    var accEmail = childSnapshot.val().email;
+    var accPassword = childSnapshot.val().password;
+
+});
+
 
 
 
