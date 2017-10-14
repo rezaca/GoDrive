@@ -75,60 +75,14 @@
 
     <!-- Header -->
     <header class="header" id="top">
-
-        <div class="text-vertical-center">
-
-            <h1>GoDrive</h1>
-
-            <h3>NC DMV Online Driver's Log</h3>
-            <br>
-
-            <form action="/action_page.php">
-
-                <h3 class="account-header">Create Account</h3>
-
-                <div class="form-group">
-
-                    <label for="account-name">Name:</label>
-                    <input type="name" class="form-control" id="account-name" placeholder="Grady Booch" name="name">
-
-                </div>
-
-                <div class="form-group">
-
-                    <label for="account-email">Email:</label>
-                    <input type="email" class="form-control" id="account-email" placeholder="Enter email" name="email">
-
-                </div>
-
-                <div class="form-group">
-
-                    <label for="account-password">Password:</label>
-                    <input type="password" class="form-control" id="account-password" placeholder="Enter password" name="pwd">
-
-                </div>
-
-                <div class="form-group">
-
-                    <label for="checkIfSame">Re-enter Password:</label>
-                    <input type="password" class="form-control" id="verifyPassword" placeholder="Re-enter password" name="pwd">
-
-                </div>
-
-                <div class="checkbox">
-
-                    <label><input type="checkbox" name="remember" id="remember"> Remember me</label>
-
-                </div>
-
-                <a href="#requirements" <button type="submit" class="btn btn-default" id="add-account">Log In</button> </a>
-
-            </form>
-
-
-
-        </div>
-
+      <div class="text-vertical-center">
+        <img src="assets/images/godrive.png" alt="GoDrive Logo" style="width:auto;height:150px;">
+        <!-- <h1>GoDrive</h1> -->
+        <!-- <h3>NC DMV Online Driver's Log</h3> -->
+        <br>
+        <br>
+        <a href="#about" class="btn btn-dark btn-lg js-scroll-trigger">Log In</a>
+      </div>
     </header>
 
     <!-- About -->
@@ -157,154 +111,163 @@
 
     </section>
 
-    <!-- Services -->
-    <section id="requirements" class="services bg-primary text-white">
-
-        <div class="container">
-
-            <div class="row text-center">
-
-                <div class="col-lg-10 mx-auto">
-
-                    <h2>Our Services</h2>
-
-                    <hr class="small">
-
-                    <div class="row">
-
-                        <div class="col-md-3 col-sm-6">
-
-                            <div class="service-item">
-
-                                <span class="fa-stack fa-4x">
-                    
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                    
-                                    <i class="fa fa-cloud fa-stack-1x text-primary"></i>
-                 
-                                </span>
-
-                                <h4>
-
-                                    <strong>Service Name</strong>
-
-                                </h4>
-
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-
-                                <a href="#" class="btn btn-light">Learn More</a>
-
-                            </div>
-
-                        </div>
-
-                        <div class="col-md-3 col-sm-6">
-
-                            <div class="service-item">
-
-                                <span class="fa-stack fa-4x">
-                  
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                    
-                                    <i class="fa fa-compass fa-stack-1x text-primary"></i>
-                 
-                                </span>
-
-                                <h4>
-
-                                    <strong>Service Name</strong>
-
-                                </h4>
-
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-
-                                <a href="#" class="btn btn-light">Learn More</a>
-
-                            </div>
-
-                        </div>
-
-                        <div class="col-md-3 col-sm-6">
-
-                            <div class="service-item">
-
-                                <span class="fa-stack fa-4x">
-                   
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                    
-                                    <i class="fa fa-flask fa-stack-1x text-primary"></i>
-                  
-                                </span>
-
-                                <h4>
-
-                                    <strong>Service Name</strong>
-
-                                </h4>
-
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-
-                                <a href="#" class="btn btn-light">Learn More</a>
-
-                            </div>
-
-                        </div>
-
-                        <div class="col-md-3 col-sm-6">
-
-                            <div class="service-item">
-
-                                <span class="fa-stack fa-4x">
-                   
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                    
-                                    <i class="fa fa-shield fa-stack-1x text-primary"></i>
-                
-                                </span>
-
-                                <h4>
-
-                                    <strong>Service Name</strong>
-
-                                </h4>
-
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-
-                                <a href="#" class="btn btn-light">Learn More</a>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- /.row (nested) -->
-
+    <!-- Callout -->
+    <aside class="callout">
+        <div class="row">
+            <div class="col-md-12">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Current Driver's Log</h3>
                 </div>
-                <!-- /.col-lg-10 -->
+                 <div class="panel-body">
+                  <table class="table table-hover table-responsive" id="trainTable" style="background-color: none !important; color: none">
+                  <thead>
+                    <tr>
+                      <th>Date (MM/DD)</th>
+                      <th>Day/Night</th>
+                      <th>Sunny/Rain</th>
+                      <th>Highway/City</th>
+                      <th>Total Hours</th>
+                    </tr>
+                  </thead>
+                  <tbody id="trainTable">
+                    <tr></tr>
+                  </tbody>
+                  </table>
+                 </div> <!-- Panel Body End -->
+              </div> <!-- Panel Default End -->
+            </div> <!-- Col End -->
+        
+            <div class="col-md-12">
+              <div class="panel panel-primary">
+                <br>
+                <div class="panel-heading">
+                  <h3 class="panel-title">Drive Entry</h3>
+                </div>
+                 <div class="panel-body">
+                   <form>
+                     <div class="form-group">
+                        <label for="name">Date (MM/DD) </label>
+                        <input type="text" class="form-control" id="nameInput" placeholder="01/01">
+                    </div>
+                    <div class="form-group">
+                        <label for="dest">Day/Night</label>
+                        <input type="text" class="form-control" id="destInput" placeholder="Day">
+                    </div>
+                    <div class="form-group">
+                        <label class="nextTrain" for="nextTrain">Sunny/Rain</label>
+                        <!-- <label class="milTime">&nbsp;(HH:mm - Military)</label> -->
+                        <input type="" class="form-control" id="timeInput" placeholder="Rain">
+                    </div>
+                    <div class="form-group">
+                        <label for="minsAway">Highway/City</label>
+                        <input type="text" class="form-control" id="freqInput" placeholder="Highway">
+                    </div>
+                    <div class="form-group">
+                        <label for="minsAway">Total Hours (Round to nearest half hour)</label>
+                        <input type="text" class="form-control" id="freqInput" placeholder="1.5">
+                    </div>
 
-            </div>
-            <!-- /.row -->
+                    <button type="submit" class="btn btn-default" id="submit">Submit</button>
+        
+                    <!-- <button type="submit" class="btn btn-default" id="removeTain">Remove</button> -->
+                  </form>
+                 </div> <!-- Panel Body End -->
+              </div> <!-- Panel Default End -->
+            </div> <!-- Col End -->
+          </div> <!-- Row End -->
+        <!-- <div class="text-vertical-center">
+          <h1>Vertically Centered Text</h1>
+        </div> -->
+    </aside>
+
+    <!-- Services -->
+    <!-- <section id="services" class="services bg-primary text-white">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-lg-10 mx-auto">
+            <h2>Select Your Current Driving Conditions</h2>
+            <hr class="small">
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <div class="service-item">
+                  <span class="fa-stack fa-4x">
+                    <img src="assets/images/daynight.png" alt="daynight icon" style="width:auto;height:auto;"> -->
+                    <!-- <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-cloud fa-stack-1x text-primary"></i> -->
+                  </span>
+                  <!-- <h4>
+                    <strong>Service Name</strong>
+                  </h4> -->
+                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
+                  <!-- <br>
+                  <br>
+                  <br>
+                  <a href="#" class="btn btn-light">Learn More</a>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <div class="service-item">
+                  <span class="fa-stack fa-4x">
+                      <img src="assets/images/sunrain.png" alt="sunrain icon" style="width:auto;height:auto;"> -->
+                    <!-- <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-compass fa-stack-1x text-primary"></i> -->
+                  </span>
+                  <!-- <h4>
+                    <strong>Service Name</strong>
+                  </h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
+                  <!-- <br>
+                  <br>
+                  <br>
+                  <a href="#" class="btn btn-light">Learn More</a>
+                </div>
+              </div> -->
+              <!-- <div class="col-md-3 col-sm-6">
+                <div class="service-item">
+                  <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-flask fa-stack-1x text-primary"></i>
+                  </span>
+                  <h4>
+                    <strong>Service Name</strong>
+                  </h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <a href="#" class="btn btn-light">Learn More</a>
+                </div> -->
+              <!-- </div>
+              <div class="col-md-6 col-sm-6">
+                <div class="service-item">
+                  <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-shield fa-stack-1x text-primary"></i>
+                  </span>
+                  <h4>
+                    <strong>Service Name</strong>
+                  </h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <a href="#" class="btn btn-light">Learn More</a>
+                </div>
+              </div>
+            </div> -->
+            <!-- /.row (nested) -->
+          </div>
+          <!-- /.col-lg-10 -->
 
         </div>
         <!-- /.container -->
 
     </section>
 
-    <!-- Callout -->
-    <aside class="callout">
-
-        <div class="text-vertical-center">
-
-            <h1>Vertically Centered Text</h1>
-
-        </div>
-
-    </aside>
+    
 
     <!-- Portfolio -->
-    <section id="portfolio" class="portfolio">
-
-        <div class="container">
+    <!-- <section id="portfolio" class="portfolio">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto text-center">
+            <h2>Our Work</h2>
+            <hr class="small">
 
             <div class="row">
 
@@ -378,10 +341,12 @@
                     <a href="#" class="btn btn-dark">View More Items</a>
 
                 </div>
-                <!-- /.col-lg-10 -->
-
-            </div>
-            <!-- /.row -->
+              </div>
+            </div> -->
+            <!-- /.row (nested) -->
+            <!-- <a href="#" class="btn btn-dark">View More Items</a> -->
+          </div>
+          <!-- /.col-lg-10 -->
 
         </div>
         <!-- /.container -->
@@ -390,16 +355,19 @@
 
     <!-- Call to Action -->
     <aside class="call-to-action bg-primary text-white">
-
-        <div class="container text-center">
-
-            <h3>The buttons below are impossible to resist.</h3>
-
-            <a href="#" class="btn btn-lg btn-light">Click Me!</a>
-
-            <a href="#" class="btn btn-lg btn-dark">Look at Me!</a>
-
+      <div class="container text-center">
+        <h3>Choose your start and end points.</h3>
+        <!-- <a href="#" class="btn btn-lg btn-light">Click Me!</a>
+        <a href="#" class="btn btn-lg btn-dark">Look at Me!</a> -->
+        <div class="form-group">
+            <label for="minsAway">Start</label>
+            <input type="text" class="form-control" id="freqInput">
         </div>
+        <div class="form-group">
+            <label for="minsAway">End</label>
+            <input type="text" class="form-control" id="freqInput">
+        </div>  
+      </div>
 
     </aside>
 
@@ -416,88 +384,44 @@
 
     <!-- Footer -->
     <footer>
-
-        <div class="container">
-
-            <div class="row">
-
-                <div class="col-lg-10 mx-auto text-center">
-
-                    <h4>
-
-                        <strong>UNCC Coding Boot Camp</strong>
-                        <br> Team Booch
-
-                    </h4>
-
-                    <p>
-
-                        320 E 9th St
-
-                        <br> Charlotte, NC 28202
-
-                    </p>
-
-                    <ul class="list-unstyled">
-
-                        <li>
-
-                            <i class="fa fa-phone fa-fw"></i> (123) 456-7890
-
-                        </li>
-
-                        <li>
-
-                            <i class="fa fa-envelope-o fa-fw"></i>
-
-                            <a href="mailto:name@example.com">name@example.com</a>
-
-                        </li>
-
-                    </ul>
-                    <br>
-
-                    <ul class="list-inline">
-
-                        <li class="list-inline-item">
-
-                            <a href="#">
-                  
-                                <i class="fa fa-facebook fa-fw fa-3x"></i>
-               
-                            </a>
-
-                        </li>
-
-                        <li class="list-inline-item">
-
-                            <a href="#">
-                 
-                                <i class="fa fa-twitter fa-fw fa-3x"></i>
-               
-                            </a>
-
-                        </li>
-
-                        <li class="list-inline-item">
-
-                            <a href="#">
-                 
-                                <i class="fa fa-dribbble fa-fw fa-3x"></i>
-             
-                            </a>
-
-                        </li>
-
-                    </ul>
-
-                    <hr class="small">
-
-                    <p class="text-muted">Copyright &copy; GoDrive 2017</p>
-
-                </div>
-
-            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto text-center">
+            <!-- <h4>
+              <strong>Start Bootstrap</strong>
+            </h4>
+            <p>3481 Melrose Place
+              <br>Beverly Hills, CA 90210</p>
+            <ul class="list-unstyled">
+              <li>
+                <i class="fa fa-phone fa-fw"></i>
+                (123) 456-7890</li>
+              <li>
+                <i class="fa fa-envelope-o fa-fw"></i>
+                <a href="mailto:name@example.com">name@example.com</a>
+              </li>
+            </ul>
+            <br>
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-facebook fa-fw fa-3x"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-twitter fa-fw fa-3x"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-dribbble fa-fw fa-3x"></i>
+                </a>
+              </li>
+            </ul> -->
+            <hr class="small">
+            <p class="text-muted">Copyright &copy; GoDrive 2017</p>
+          </div>
 
         </div>
 
