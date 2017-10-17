@@ -25,7 +25,6 @@ var config = {
     storageBucket: "",
     messagingSenderId: "60868714643"
 };
-
 firebase.initializeApp(config);
 
 var database = firebase.database();
@@ -35,6 +34,7 @@ var database = firebase.database();
 
 // Button for adding users account
 $("#add-account").on("click", function (event) {
+
     event.preventDefault();
 
     // Grabs users input
@@ -65,35 +65,35 @@ $("#add-account").on("click", function (event) {
 
 // Button to add users requirements 
 
-$("#add-requirements").on("click", function (event) {
+// $("#add-requirements").on("click", function (event) {
 
-    event.preventDefault();
+//     event.preventDefault();
 
-    var totalHours = $("#required-hours").val().trim();
-    var nightHours = $("#required-nightHours").val().trim();
-    var highwayHours = $("#required-hwyHours").val().trim();
-    var rainHours = $("#required-rainHours").val().trim();
+//     var totalHours = $("#required-hours").val().trim();
+//     var nightHours = $("#required-nightHours").val().trim();
+//     var highwayHours = $("#required-hwyHours").val().trim();
+//     var rainHours = $("#required-rainHours").val().trim();
 
-    newRequirements = {
-        hours: totalHours,
-        night: nightHours,
-        highway: highwayHours,
-        rain: rainHours
-    }
+//     newRequirements = {
+//         hours: totalHours,
+//         night: nightHours,
+//         highway: highwayHours,
+//         rain: rainHours
+//     }
 
-    database.ref().push(newRequirements);
+//     database.ref().push(newRequirements);
 
-    console.log(newRequirements.hours);
-    console.log(newRequirements.night);
-    console.log(newRequirements.highway);
-    console.log(newRequirements.rain);
+//     console.log(newRequirements.hours);
+//     console.log(newRequirements.night);
+//     console.log(newRequirements.highway);
+//     console.log(newRequirements.rain);
 
-    $("#required-hours").val("");
-    $("#required-nightHours").val("");
-    $("#required-hwyHours").val("");
-    $("#required-rainHours").val("");
+//     $("#required-hours").val("");
+//     $("#required-nightHours").val("");
+//     $("#required-hwyHours").val("");
+//     $("#required-rainHours").val("");
 
-});
+// });
 
 // Button for adding users log 
 
@@ -101,82 +101,45 @@ $("#add-log").on("click", function (event) {
 
     event.preventDefault();
 
-    var timeOfDay = $("#log-timeOfDay").val().trim();
-    var distance = $("#log-distance").val().trim();
-    var hours = $("#log-hours").val().trim();
-    var weather = $("#log-weather").val().trim();
+    var timeOfDay = $("#timeOfDay").val().trim();
+    var dateInput = $("#dateInput").val().trim();
+    var totalHours = $("#totalHours").val().trim();
+    var weatherInput = $("#weatherInput").val().trim();
+    var driveType = $("#driveType").val().trim();
 
     newLog = {
         timeOfDay: timeOfDay,
-        distance: distance,
-        hours: hours,
-        weather: weather
+        date: dateInput,
+        hours: totalHours,
+        weather: weatherInput,
+        driveType: driveType
     }
 
     database.ref().push(newLog);
 
+    console.log(newLog.date);
     console.log(newLog.timeOfDay);
-    console.log(newLog.distance);
-    console.log(newLog.hours);
     console.log(newLog.weather);
+    console.log(newLog.driveType);
+    console.log(newLog.hours);
 
-    $("#").val("");
-    $("#log-distance").val("");
-    $("#log-hours").val("");
-    $("#log-weather").val("");
+    $("#timeOfDay").val("");
+    $("#dateInput").val("");
+    $("#totalHours").val("");
+    $("#weatherInput").val("");
+    $("#driveType").val("");
+
+    $("#logTable > tbody").append("<tr><th>" + dateInput + "</th><th>" + timeOfDay + "</th><th>" + weatherInput + "</th><th>" + driveType + "</th><th>" + totalHours + "</th></tr>");
+
 });
 
-
-// Password encryption 
-
-// var pass = new Array()
-// var t3 = ""
-// var lim = 5
-// pass[0] = "S6yrBG9mrTAL5Bz"
-// pass[1] = "2tf3gGluctEZwha"
-// pass[2] = "eicJNnfyHXjTpxr"
-// pass[3] = "SPFG5ce2HHosLyn"
-// pass[4] = "5AdQ529xqMYNQzQV"
-// pass[5] = "36AdQ529xqMYNQzQ"
-
-// //configure extension to reflect the extension type of the target web page (ie: .htm or .html)
-// var extension = ".html"
-// var enablelocking = 0
-// var numletter = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-// var temp3 = ''
-// var cur = 0
-
-
-// function max(which) {
-//     return (pass[Math.ceil(which) + (3 & 15)].substring(0, 1))
-// }
-
-// function testit(input) {
-//     temp = numletter.indexOf(input)
-//     var temp2 = temp ^ parseInt(pass[phase1 - 1 + (1 | 3)].substring(0, 2))
-//     temp2 = numletter.substring(temp2, temp2 + 1)
-//     return (temp2)
-// }
-
-
-// function submitentry() {
-//     t3 = ''
-//     verification = document.password1.password2.value
-//     phase1 = Math.ceil(Math.random()) - 6 + (2 << 2)
-//     var indicate = true
-//     for (i = (1 & 2); i < window.max(Math.LOG10E); i++)
-//         t3 += testit(verification.charAt(i))
-//     for (i = (1 & 2); i < lim; i++) {
-//         if (t3.charAt(i) != pass[phase1 + Math.round(Math.sin(Math.PI / 2) - 1)].charAt(i))
-//             indicate = false
-//     }
-//     if (verification.length != window.max(Math.LOG10E))
-//         indicate = false
-//     if (indicate)
-//         window.location = verification + extension
-//     else
-//         alert("Invalid password. Please try again")
-// }
+function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
 
 // Firebase reference 
 database.ref().on("child_added", function (childSnapshot, prevChildKey) {
@@ -184,6 +147,12 @@ database.ref().on("child_added", function (childSnapshot, prevChildKey) {
     var accName = childSnapshot.val().name;
     var accEmail = childSnapshot.val().email;
     var accPassword = childSnapshot.val().password;
+
+    var logDate = childSnapshot.val().date;
+    var timeOfDay = childSnapshot.val().date;
+    var totalHours = childSnapshot.val().hours;
+    var logWeather = childSnapshot.val().weather;
+    var driveType = childSnapshot.val().driveType;
 
 });
 
