@@ -31,6 +31,13 @@ var database = firebase.database();
 
 // Log in/ Create account 
 
+function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
 
 // Button for adding users account
 $("#add-account").on("click", function (event) {
@@ -129,17 +136,10 @@ $("#add-log").on("click", function (event) {
     $("#weatherInput").val("");
     $("#driveType").val("");
 
-    $("#logTable > tbody").append("<tr><th>" + dateInput + "</th><th>" + timeOfDay + "</th><th>" + weatherInput + "</th><th>" + driveType + "</th><th>" + totalHours + "</th></tr>");
 
 });
 
-function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}
+
 
 // Firebase reference 
 database.ref().on("child_added", function (childSnapshot, prevChildKey) {
@@ -149,10 +149,13 @@ database.ref().on("child_added", function (childSnapshot, prevChildKey) {
     var accPassword = childSnapshot.val().password;
 
     var logDate = childSnapshot.val().date;
-    var timeOfDay = childSnapshot.val().date;
+    var timeOfDay = childSnapshot.val().timeOfDay;
     var totalHours = childSnapshot.val().hours;
     var logWeather = childSnapshot.val().weather;
     var driveType = childSnapshot.val().driveType;
+
+    $("#logTable").append("<tr><td>" + logDate + "</td><td>" + timeOfDay + "</td><td>" + logWeather + "</td><td>" + driveType + "</td><td>" + totalHours + "</td></tr>");
+
 
 });
 

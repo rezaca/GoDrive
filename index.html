@@ -73,7 +73,7 @@
     <!-- Header -->
     <header class="header" id="top">
         <div class="text-vertical-center">
-            <img src="assets/images/godrive.png" alt="GoDrive Logo" style="width:auto;height:150px;">
+            <img class="img" src="assets/images/godrive.png" alt="GoDrive Logo" style="width:auto;height:150px;">
             <br>
             <br>
 
@@ -137,51 +137,79 @@
             </div>
             <!-- Col End -->
 
-            <div class="col-md-12">
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6">
+
                 <div class="panel panel-primary">
                     <br>
+
                     <div class="panel-heading">
                         <h3 class="panel-title">Entry Log</h3>
                     </div>
+
                     <div class="panel-body">
+
                         <form>
                             <div class="form-group">
                                 <label for="dateInput">Date (MM/DD) </label>
                                 <input type="text" class="form-control" id="dateInput" placeholder="01/01">
                             </div>
+
                             <div class="form-group">
                                 <label for="timeOfDay">Day/Night</label>
                                 <input type="text" class="form-control" id="timeOfDay" placeholder="Day">
                             </div>
+
                             <div class="form-group">
                                 <label for="weatherInput">Sunny/Rain</label>
                                 <!-- <label class="milTime">&nbsp;(HH:mm - Military)</label> -->
                                 <input type="" class="form-control" id="weatherInput" placeholder="Rain">
                             </div>
+
                             <div class="form-group">
                                 <label for="driveType">Highway/City</label>
                                 <input type="text" class="form-control" id="driveType" placeholder="Highway">
                             </div>
+
                             <div class="form-group">
                                 <label for="totalHours">Total Hours (Round to nearest half hour)</label>
                                 <input type="text" class="form-control" id="totalHours" placeholder="1.5">
                             </div>
 
+                            <div class="form-group">
+                                <label for="start">Start Location</label>
+                                <input type="text" class="form-control" id="start" placeholder="Charlotte, NC">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="end">End</label>
+                                <input type="text" class="form-control" id="end" placeholder="Somewhere else">
+                            </div>
+
                             <button type="submit" class="btn btn-default" id="add-log">Submit</button>
 
-                            <!-- <button type="submit" class="btn btn-default" id="removeTain">Remove</button> -->
                         </form>
+
                     </div>
                     <!-- Panel Body End -->
                 </div>
                 <!-- Panel Default End -->
             </div>
             <!-- Col End -->
+
+            <div class="col-md-6">
+
+                <div id="map"></div>
+
+            </div>
+
+
+
         </div>
         <!-- Row End -->
-        <!-- <div class="text-vertical-center">
-          <h1>Vertically Centered Text</h1>
-        </div> -->
     </aside>
 
     <!-- Services -->
@@ -356,11 +384,11 @@
     </section>
 
     <!-- Call to Action -->
-    <aside class="call-to-action bg-primary text-white">
+    <!-- <aside class="call-to-action bg-primary text-white">
         <div class="container text-center" id="mapSection">
             <h3>Choose your start and end points.</h3>
-            <!-- <a href="#" class="btn btn-lg btn-light">Click Me!</a>
-        <a href="#" class="btn btn-lg btn-dark">Look at Me!</a> -->
+            <a href="#" class="btn btn-lg btn-light">Click Me!</a>
+            <a href="#" class="btn btn-lg btn-dark">Look at Me!</a>
             <div class="form-group">
                 <label for="minsAway">Start</label>
                 <input type="text" class="form-control" id="freqInput">
@@ -371,18 +399,10 @@
             </div>
         </div>
 
-    </aside>
+    </aside> -->
 
     <!-- Map -->
-    <section id="contact">
 
-        <small>
-            
-            <div id="map"></div>
-
-        </small>
-
-    </section>
 
     <!-- Footer -->
     <footer>

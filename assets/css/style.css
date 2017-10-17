@@ -7,6 +7,10 @@
 
 /* Global Styles */
 
+.img {
+    background-color: rgba (255, 255, 255, .6);
+}
+
 html,
 body {
     width: 100%;
@@ -41,7 +45,7 @@ form {
     text-align: center;
     background-color: rgba(0, 0, 0, .5);
     color: white;
-    width: 25%;
+    width: 100%;
     padding: 20px;
 }
 
@@ -184,6 +188,7 @@ hr.small {
     width: 100%;
     height: 100%;
     background: url(../images/roads1.jpg) no-repeat center center scroll;
+    background-color: rgba(255, 255, 255, .4);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -259,14 +264,15 @@ footer {
     padding: 100px 0;
 }
 
-button {
-    width: 200px;
-    height: 100px;
+#add-log {
+    width: 100px;
+    height: 50px;
 }
 
 #map {
-    height: 500px;
+    height: 92%;
     width: 100%;
+    margin-top: 62px;
 }
 
 #to-top {
