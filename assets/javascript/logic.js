@@ -26,7 +26,6 @@ $.ajax({
 });
 
 
-
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyCjHRGiUjezd6cX9yf7Ci-U4drbZOIxXa4",
@@ -42,44 +41,44 @@ var database = firebase.database();
 
 // Log in/ Create account 
 
-function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}
+// function onSignIn(googleUser) {
+//     var profile = googleUser.getBasicProfile();
+//     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+//     console.log('Name: ' + profile.getName());
+//     console.log('Image URL: ' + profile.getImageUrl());
+//     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+// }
 
 // Button for adding users account
-$("#add-account").on("click", function (event) {
+// $("#add-account").on("click", function (event) {
 
-    event.preventDefault();
+//     event.preventDefault();
 
-    // Grabs users input
-    var accName = $("#account-name").val().trim();
-    var accEmail = $("#account-email").val().trim();
-    var accPassword = $("#account-password").val().trim();
-    var verifyPassword = $("#verifyPassword").val().trim();
+//     // Grabs users input
+//     var accName = $("#account-name").val().trim();
+//     var accEmail = $("#account-email").val().trim();
+//     var accPassword = $("#account-password").val().trim();
+//     var verifyPassword = $("#verifyPassword").val().trim();
 
-    // Creates local object for holding account data
-    var newAccount = {
-        name: accName,
-        email: accEmail,
-        password: accPassword
-    }
+//     // Creates local object for holding account data
+//     var newAccount = {
+//         name: accName,
+//         email: accEmail,
+//         password: accPassword
+//     }
 
-    // Uploads employee data to the database
-    database.ref().push(newAccount);
+//     // Uploads employee data to the database
+//     database.ref().push(newAccount);
 
-    console.log(newAccount.name);
-    console.log(newAccount.email);
-    console.log(newAccount.password);
+//     console.log(newAccount.name);
+//     console.log(newAccount.email);
+//     console.log(newAccount.password);
 
-    $("#account-name").val("");
-    $("#account-email").val("");
-    $("#account-password").val("");
+//     $("#account-name").val("");
+//     $("#account-email").val("");
+//     $("#account-password").val("");
 
-});
+// });
 
 // Button to add users requirements 
 
@@ -150,14 +149,25 @@ $("#add-log").on("click", function (event) {
 
 });
 
+$('#loginForm').submit(function () {
+
+    if ($.trim($("#dateInput").val()) === "" || $.trim($("#start").val()) === "" || $.trim($("#end").val()) === "" || $.trim($("#timeOfDay").val()) === "" || $.trim($("#weatherInput").val()) === "" || $.trim($("#driveType").val()) === "" || $.trim($("#totalHours").val()) === "") {
+
+        alert('Please enter Username and Password.');
+        return false;
+
+    }
+
+});
+
 
 
 // Firebase reference 
 database.ref().on("child_added", function (childSnapshot, prevChildKey) {
 
-    var accName = childSnapshot.val().name;
-    var accEmail = childSnapshot.val().email;
-    var accPassword = childSnapshot.val().password;
+    // var accName = childSnapshot.val().name;
+    // var accEmail = childSnapshot.val().email;
+    // var accPassword = childSnapshot.val().password;
 
     var logDate = childSnapshot.val().date;
     var timeOfDay = childSnapshot.val().timeOfDay;
