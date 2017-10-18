@@ -188,12 +188,12 @@ function onSignIn(googleUser) {
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
 
-function signOut() {
+$("#signOut").on("click", function (event) {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
         console.log('User signed out.');
     });
-}
+});
 
 // auth2 is initialized with gapi.auth2.init() and a user is signed in.
 
