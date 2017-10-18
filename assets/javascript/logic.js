@@ -2,143 +2,143 @@
 
 // INITIATE GOOGLE MAP
 function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 35.2271, lng: -80.8431},
-          zoom: 13
-        });
+    var map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 35.2271, lng: -80.8431 },
+        zoom: 13
+    });
 
-        var origin = document.getElementById('start');
-        var destination = document.getElementById('end');
+    var origin = document.getElementById('start');
+    var destination = document.getElementById('end');
 
-        var autocomplete = new google.maps.places.Autocomplete(origin);
+    var autocomplete = new google.maps.places.Autocomplete(origin);
 
-        // Bind the map's bounds (viewport) property to the autocomplete object,
-        // so that the autocomplete requests use the current map bounds for the
-        // bounds option in the request.
-        autocomplete.bindTo('bounds', map);
+    // Bind the map's bounds (viewport) property to the autocomplete object,
+    // so that the autocomplete requests use the current map bounds for the
+    // bounds option in the request.
+    autocomplete.bindTo('bounds', map);
 
-        var infowindow = new google.maps.InfoWindow();
-        var infowindowContent = document.getElementById('infowindow-content');
-        infowindow.setContent(infowindowContent);
-        var marker = new google.maps.Marker({
-          map: map,
-          anchorPoint: new google.maps.Point(0, -29)
-        });
+    var infowindow = new google.maps.InfoWindow();
+    var infowindowContent = document.getElementById('infowindow-content');
+    infowindow.setContent(infowindowContent);
+    var marker = new google.maps.Marker({
+        map: map,
+        anchorPoint: new google.maps.Point(0, -29)
+    });
 
-        autocomplete.addListener('place_changed', function() {
-          infowindow.close();
-          marker.setVisible(false);
-          var place = autocomplete.getPlace();
-          if (!place.geometry) {
+    autocomplete.addListener('place_changed', function () {
+        infowindow.close();
+        marker.setVisible(false);
+        var place = autocomplete.getPlace();
+        if (!place.geometry) {
             // User entered the name of a Place that was not suggested and
             // pressed the Enter key, or the Place Details request failed.
             window.alert("No details available for input: '" + place.name + "'");
             return;
-          }
+        }
 
-          // If the place has a geometry, then present it on a map.
-          if (place.geometry.viewport) {
+        // If the place has a geometry, then present it on a map.
+        if (place.geometry.viewport) {
             map.fitBounds(place.geometry.viewport);
-          } else {
+        } else {
             map.setCenter(place.geometry.location);
             map.setZoom(17);  // Why 17? Because it looks good.
-          }
-          marker.setPosition(place.geometry.location);
-          marker.setVisible(true);
+        }
+        marker.setPosition(place.geometry.location);
+        marker.setVisible(true);
 
-          var address = '';
-          if (place.address_components) {
+        var address = '';
+        if (place.address_components) {
             address = [
-              (place.address_components[0] && place.address_components[0].short_name || ''),
-              (place.address_components[1] && place.address_components[1].short_name || ''),
-              (place.address_components[2] && place.address_components[2].short_name || '')
+                (place.address_components[0] && place.address_components[0].short_name || ''),
+                (place.address_components[1] && place.address_components[1].short_name || ''),
+                (place.address_components[2] && place.address_components[2].short_name || '')
             ].join(' ');
-          }
+        }
 
-          infowindowContent.children['place-icon'].src = place.icon;
-          infowindowContent.children['place-name'].textContent = place.name;
-          infowindowContent.children['place-address'].textContent = address;
-          infowindow.open(map, marker);
-        });
+        infowindowContent.children['place-icon'].src = place.icon;
+        infowindowContent.children['place-name'].textContent = place.name;
+        infowindowContent.children['place-address'].textContent = address;
+        infowindow.open(map, marker);
+    });
 
-        var autocomplete2 = new google.maps.places.Autocomplete(destination);
+    var autocomplete2 = new google.maps.places.Autocomplete(destination);
 
-        // Bind the map's bounds (viewport) property to the autocomplete object,
-        // so that the autocomplete requests use the current map bounds for the
-        // bounds option in the request.
-        autocomplete2.bindTo('bounds', map);
+    // Bind the map's bounds (viewport) property to the autocomplete object,
+    // so that the autocomplete requests use the current map bounds for the
+    // bounds option in the request.
+    autocomplete2.bindTo('bounds', map);
 
-        var infowindow = new google.maps.InfoWindow();
-        var infowindowContent = document.getElementById('infowindow-content');
-        infowindow.setContent(infowindowContent);
-        var marker = new google.maps.Marker({
-          map: map,
-          anchorPoint: new google.maps.Point(0, -29)
-        });
+    var infowindow = new google.maps.InfoWindow();
+    var infowindowContent = document.getElementById('infowindow-content');
+    infowindow.setContent(infowindowContent);
+    var marker = new google.maps.Marker({
+        map: map,
+        anchorPoint: new google.maps.Point(0, -29)
+    });
 
-        autocomplete2.addListener('place_changed', function() {
-          infowindow.close();
-          marker.setVisible(false);
-          var place = autocomplete2.getPlace();
-          if (!place.geometry) {
+    autocomplete2.addListener('place_changed', function () {
+        infowindow.close();
+        marker.setVisible(false);
+        var place = autocomplete2.getPlace();
+        if (!place.geometry) {
             // User entered the name of a Place that was not suggested and
             // pressed the Enter key, or the Place Details request failed.
             window.alert("No details available for input: '" + place.name + "'");
             return;
-          }
+        }
 
-          // If the place has a geometry, then present it on a map.
-          if (place.geometry.viewport) {
+        // If the place has a geometry, then present it on a map.
+        if (place.geometry.viewport) {
             map.fitBounds(place.geometry.viewport);
-          } else {
+        } else {
             map.setCenter(place.geometry.location);
             map.setZoom(17);  // Why 17? Because it looks good.
-          }
-          marker.setPosition(place.geometry.location);
-          marker.setVisible(true);
+        }
+        marker.setPosition(place.geometry.location);
+        marker.setVisible(true);
 
-          var address = '';
-          if (place.address_components) {
+        var address = '';
+        if (place.address_components) {
             address = [
-              (place.address_components[0] && place.address_components[0].short_name || ''),
-              (place.address_components[1] && place.address_components[1].short_name || ''),
-              (place.address_components[2] && place.address_components[2].short_name || '')
+                (place.address_components[0] && place.address_components[0].short_name || ''),
+                (place.address_components[1] && place.address_components[1].short_name || ''),
+                (place.address_components[2] && place.address_components[2].short_name || '')
             ].join(' ');
-          }
+        }
 
-          infowindowContent.children['place-icon'].src = place.icon;
-          infowindowContent.children['place-name'].textContent = place.name;
-          infowindowContent.children['place-address'].textContent = address;
-          infowindow.open(map, marker);
-        });
+        infowindowContent.children['place-icon'].src = place.icon;
+        infowindowContent.children['place-name'].textContent = place.name;
+        infowindowContent.children['place-address'].textContent = address;
+        infowindow.open(map, marker);
+    });
 
-        var directionsDisplay = new google.maps.DirectionsRenderer({
-          map: map
-        });
+    var directionsDisplay = new google.maps.DirectionsRenderer({
+        map: map
+    });
 
-        // Set destination, origin and travel mode.
-        $('button').on('click', function() {
+    // Set destination, origin and travel mode.
+    $('button').on('click', function () {
 
-          var request = {
+        var request = {
             destination: document.getElementById('end').value,
             origin: document.getElementById('start').value,
             travelMode: 'DRIVING'
-          };
+        };
 
         // Pass the directions request to the directions service.
-          var directionsService = new google.maps.DirectionsService();
-          directionsService.route(request, function(response, status) {
+        var directionsService = new google.maps.DirectionsService();
+        directionsService.route(request, function (response, status) {
             if (status == 'OK') {
-              // Display the route on the map.
-              console.log(response);
-              directionsDisplay.setDirections(response);
-              distance(request.origin, request.destination);
+                // Display the route on the map.
+                console.log(response);
+                directionsDisplay.setDirections(response);
+                distance(request.origin, request.destination);
             }
-          });
-      });
+        });
+    });
 
-      function distance(origin, destination){
-       var service = new google.maps.DistanceMatrixService();
+    function distance(origin, destination) {
+        var service = new google.maps.DistanceMatrixService();
         service.getDistanceMatrix({
             origins: [origin],
             destinations: [destination],
@@ -146,12 +146,12 @@ function initMap() {
             // unitSystem: google.maps.unitSystem.METRIC,
             avoidHighways: false,
             avoidTolls: false,
-          }, function(response) {
+        }, function (response) {
             console.log("distance", response)
-          });
-      }
+        });
+    }
 
-  }
+}
 
 var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=charlotte&APPID=7a900c6b9bfad12905d2d07c66eaa183";
 
@@ -163,7 +163,6 @@ $.ajax({
 
 
 });
-
 
 
 // Initialize Firebase
@@ -190,35 +189,35 @@ function onSignIn(googleUser) {
 }
 
 // Button for adding users account
-$("#add-account").on("click", function (event) {
+// $("#add-account").on("click", function (event) {
 
-    event.preventDefault();
+//     event.preventDefault();
 
-    // Grabs users input
-    var accName = $("#account-name").val().trim();
-    var accEmail = $("#account-email").val().trim();
-    var accPassword = $("#account-password").val().trim();
-    var verifyPassword = $("#verifyPassword").val().trim();
+//     // Grabs users input
+//     var accName = $("#account-name").val().trim();
+//     var accEmail = $("#account-email").val().trim();
+//     var accPassword = $("#account-password").val().trim();
+//     var verifyPassword = $("#verifyPassword").val().trim();
 
-    // Creates local object for holding account data
-    var newAccount = {
-        name: accName,
-        email: accEmail,
-        password: accPassword
-    }
+//     // Creates local object for holding account data
+//     var newAccount = {
+//         name: accName,
+//         email: accEmail,
+//         password: accPassword
+//     }
 
-    // Uploads employee data to the database
-    database.ref().push(newAccount);
+//     // Uploads employee data to the database
+//     database.ref().push(newAccount);
 
-    console.log(newAccount.name);
-    console.log(newAccount.email);
-    console.log(newAccount.password);
+//     console.log(newAccount.name);
+//     console.log(newAccount.email);
+//     console.log(newAccount.password);
 
-    $("#account-name").val("");
-    $("#account-email").val("");
-    $("#account-password").val("");
+//     $("#account-name").val("");
+//     $("#account-email").val("");
+//     $("#account-password").val("");
 
-});
+// });
 
 // Button to add users requirements 
 
@@ -289,14 +288,25 @@ $("#add-log").on("click", function (event) {
 
 });
 
+$('#loginForm').submit(function () {
+
+    if ($.trim($("#dateInput").val()) === "" || $.trim($("#start").val()) === "" || $.trim($("#end").val()) === "" || $.trim($("#timeOfDay").val()) === "" || $.trim($("#weatherInput").val()) === "" || $.trim($("#driveType").val()) === "" || $.trim($("#totalHours").val()) === "") {
+
+        alert('Please enter Username and Password.');
+        return false;
+
+    }
+
+});
+
 
 
 // Firebase reference 
 database.ref().on("child_added", function (childSnapshot, prevChildKey) {
 
-    var accName = childSnapshot.val().name;
-    var accEmail = childSnapshot.val().email;
-    var accPassword = childSnapshot.val().password;
+    // var accName = childSnapshot.val().name;
+    // var accEmail = childSnapshot.val().email;
+    // var accPassword = childSnapshot.val().password;
 
     var logDate = childSnapshot.val().date;
     var timeOfDay = childSnapshot.val().timeOfDay;
