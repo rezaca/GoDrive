@@ -153,16 +153,16 @@ function initMap() {
 
 }
 
-var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=charlotte&APPID=7a900c6b9bfad12905d2d07c66eaa183";
+// var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=charlotte&APPID=7a900c6b9bfad12905d2d07c66eaa183";
 
-$.ajax({
-    url: queryURL,
-    method: "GET"
-}).done(function (response) {
-    console.log(response);
+// $.ajax({
+//     url: queryURL,
+//     method: "GET"
+// }).done(function (response) {
+//     console.log(response);
 
 
-});
+// });
 
 
 // Initialize Firebase
