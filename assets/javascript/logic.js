@@ -132,24 +132,26 @@ function initMap() {
               // Display the route on the map.
               console.log(response);
               directionsDisplay.setDirections(response);
+              distance(request.origin, request.destination);
             }
           });
       });
 
-      function test(origin, destination){
+      function distance(origin, destination){
        var service = new google.maps.DistanceMatrixService();
-      service.getDistanceMatrix({
-          origins: [origin],
-          destinations: [destination],
-          travelMode: 'DRIVING',
-          // unitSystem: google.maps.unitSystem.METRIC,
-          avoidHighways: false,
-          avoidTolls: false,
-        }, function(response) {
-          console.log("distance", response)
-        });
-     }
-}
+        service.getDistanceMatrix({
+            origins: [origin],
+            destinations: [destination],
+            travelMode: 'DRIVING',
+            // unitSystem: google.maps.unitSystem.METRIC,
+            avoidHighways: false,
+            avoidTolls: false,
+          }, function(response) {
+            console.log("distance", response)
+          });
+      }
+
+  }
 
 var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=charlotte&APPID=7a900c6b9bfad12905d2d07c66eaa183";
 
