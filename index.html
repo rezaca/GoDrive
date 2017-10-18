@@ -5,9 +5,9 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- <meta name="description" content="">
-    <meta name="author" content=""> -->
-    <meta name="google-signin-client_id" content="60868714643-vst5b8ksjt6hfju5kmiqkmr2ubhfido5.apps.googleusercontent.com">
+
+    <!-- Google Sign In -->
+    <!-- <meta name="google-signin-client_id" content="60868714643-vst5b8ksjt6hfju5kmiqkmr2ubhfido5.apps.googleusercontent.com"> -->
 
     <title>GoDrive</title>
 
@@ -77,7 +77,7 @@
             <br>
             <br>
 
-            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
 
         </div>
     </header>
@@ -159,6 +159,16 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="start">Start Location</label>
+                                <input type="text" class="form-control" id="start" placeholder="Charlotte, NC">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="end">End</label>
+                                <input type="text" class="form-control" id="end" placeholder="Somewhere else">
+                            </div>
+
+                            <div class="form-group">
                                 <label for="timeOfDay">Day/Night</label>
                                 <input type="text" class="form-control" id="timeOfDay" placeholder="Day">
                             </div>
@@ -179,16 +189,6 @@
                                 <input type="text" class="form-control" id="totalHours" placeholder="1.5">
                             </div>
 
-                            <div class="form-group">
-                                <label for="start">Start Location</label>
-                                <input type="text" class="form-control" id="start" placeholder="Charlotte, NC">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="end">End</label>
-                                <input type="text" class="form-control" id="end" placeholder="Somewhere else">
-                            </div>
-
                             <button type="submit" class="btn btn-default" id="add-log">Submit</button>
 
                         </form>
@@ -206,10 +206,17 @@
 
             </div>
 
-
-
         </div>
         <!-- Row End -->
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+
+            </div>
+
+        </div>
     </aside>
 
     <!-- Services -->
