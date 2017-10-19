@@ -283,8 +283,6 @@ footer {
 /* Google Sign In / Out */
 
 .g-signin2 {
-    display: inline;
-    text-align: center;
     margin: 0 auto;
 }
 
@@ -296,6 +294,7 @@ footer {
     border: 1px solid black;
     width: 200px;
     height: 200px;
-    margin-bottom: 200px;
-    margin-left: 20px;
+    position: relative;
+    bottom: 200px;
+    left: 5%;
 }
