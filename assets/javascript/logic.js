@@ -186,6 +186,12 @@ function onSignIn(googleUser) {
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+    $("#userDisplay").html(profile.getName());
+    $("#userDisplay").html("<img class='userImg'>" + profile.getImageUrl());
+    $("#userDisplay").html(profile.getEmail());
+
+
 }
 
 $("#signOut").on("click", function (event) {

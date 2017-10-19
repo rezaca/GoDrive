@@ -283,10 +283,10 @@ footer {
 /* Google Sign In / Out */
 
 .g-signin2 {
-    display: inline-block;
-    text-align: center; 
+   position: relative;
+   left: 30%;
 }
 
 #signOut {
-    margin-top: 20px;
+    margin-top: 40px;
 }
