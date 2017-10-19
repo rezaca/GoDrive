@@ -46,39 +46,7 @@ form {
 }
 
 
-/* Custom Button Styles */
 
-.btn-dark {
-    color: #fff;
-    border: none;
-    border-radius: 0;
-    background-color: rgba(0, 0, 0, .4);
-}
-
-.btn-dark:hover,
-.btn-dark:focus,
-.btn-dark:active {
-    color: #fff;
-    background-color: rgba(0, 0, 0, .7);
-}
-
-.btn-light {
-    border: none;
-    border-radius: 0;
-    background-color: rgb(0, 0, 0);
-}
-
-.btn-light:hover,
-.btn-light:focus,
-.btn-light:active {
-    color: #000000;
-    background-color: rgba(255, 255, 255, .8);
-}
-
-.btn1 {
-    margin-top: 10px;
-    background-color: #000000;
-}
 
 
 /* Custom Horizontal Rule */
@@ -231,17 +199,6 @@ hr.small {
     padding: 50px 0;
 }
 
-.portfolio-item {
-    margin-bottom: 30px;
-}
-
-.img-portfolio {
-    margin: 0 auto;
-}
-
-.img-portfolio:hover {
-    opacity: .8;
-}
 
 
 /* Call to Action */
@@ -259,6 +216,8 @@ hr.small {
 footer {
     padding: 100px 0;
 }
+
+/* Random */
 
 #add-log {
     width: 100px;
@@ -278,6 +237,10 @@ footer {
     bottom: 5px;
     display: none;
     padding: 15px 20px;
+}
+
+.img {
+    margin-top: 40px;
 }
 
 /* Google Sign In / Out */
