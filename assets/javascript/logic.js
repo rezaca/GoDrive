@@ -187,9 +187,9 @@ function onSignIn(googleUser) {
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
-    $("#userDisplay").append(profile.getName());
-    $("#userDisplay").append("<img class='userImg'>" + profile.getImageUrl());
-    $("#userDisplay").append(profile.getEmail());
+    $("#userDisplay").text(profile.getName());
+    $("#userDisplay").text("<img class='userImg'>" + profile.getImageUrl());
+    $("#userDisplay").text(profile.getEmail());
 
     // auth2 is initialized with gapi.auth2.init() and a user is signed in.
 
