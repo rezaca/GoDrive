@@ -284,7 +284,8 @@ footer {
 
 .g-signin2 {
    position: relative;
-   left: 30%;
+   left: 50%;
+   top: 10px;
 }
 
 #signOut {
