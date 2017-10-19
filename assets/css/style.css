@@ -284,10 +284,19 @@ footer {
 
 .g-signin2 {
    position: relative;
-   left: 300px;
+   left: 250px;
    top: 20px;
 }
 
 #signOut {
     margin-top: 40px;
+}
+
+#userDisplay {
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    right: 100%;
+    bottom: 100%;
 }
