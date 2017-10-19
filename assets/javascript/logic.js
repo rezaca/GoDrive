@@ -187,9 +187,9 @@ function onSignIn(googleUser) {
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
-    $("#userDisplay").text(profile.getName());
-    $("#userDisplay").text("<img class='userImg'>" + profile.getImageUrl());
-    $("#userDisplay").text(profile.getEmail());
+    $("#userDisplay").html(profile.getName());
+    $("#userDisplay").html("<img class='userImg'>" + profile.getImageUrl());
+    $("#userDisplay").html(profile.getEmail());
 
     // auth2 is initialized with gapi.auth2.init() and a user is signed in.
 
@@ -208,6 +208,7 @@ $("#signOut").on("click", function (event) {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
         console.log('User signed out.');
+        $("#userDisplay").empty();
     });
 });
 
