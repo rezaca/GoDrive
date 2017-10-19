@@ -240,13 +240,13 @@ footer {
 }
 
 .img {
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 /* Google Sign In / Out */
 
 .g-signin2 {
-    margin: 0 auto;
+    margin-left: 200px;
 }
 
 #signOut {
