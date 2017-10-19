@@ -242,7 +242,8 @@ footer {
 /* Sign In / Out */
 
 .g-signin2 {
-    margin: 0 auto;
+    position: relative;
+    left: 45.6%;
 }
 
 #signOut {
