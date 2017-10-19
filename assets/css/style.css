@@ -239,14 +239,10 @@ footer {
     padding: 15px 20px;
 }
 
-.img {
-    margin-top: 20px;
-}
-
-/* Google Sign In / Out */
+/* Sign In / Out */
 
 .g-signin2 {
-    margin-left: 200px;
+    margin-left: 400px;
 }
 
 #signOut {
