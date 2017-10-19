@@ -284,7 +284,6 @@ footer {
 
 .g-signin2 {
    position: relative;
-   left: 250px;
    top: 20px;
 }
 
@@ -297,6 +296,5 @@ footer {
     width: 200px;
     height: 200px;
     position: relative;
-    right: 100%;
-    bottom: 100%;
+   
 }
