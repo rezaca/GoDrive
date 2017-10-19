@@ -52,6 +52,12 @@
       <br>
       <label class="lead">End: </label>
         <input class="form-control" id="end" placeholder="Enter a location" type="text">
+      <div>
+        <button>Submit</button>
+      </div>
+      <div>
+        <p id='weather'></p>
+      </div>
     </div>
 
     <div id="infowindow-content">
@@ -60,7 +66,9 @@
       <span id="place-address"></span>
     </div>
 
-    <button>Submit</button>
+    <div>
+        <p><a href="https://darksky.net/poweredby/">Powered by Dark Sky</p>
+      </div>
 
     &nbsp;
     <div id="results">
@@ -201,6 +209,19 @@
               distance(request.origin, request.destination);
             }
           });
+
+          var key = '185a348f7621beb2c9fcfb4b8cb110d7';
+          var queryURL = 'http://cors-proxy.htmldriven.com/?url=https://api.darksky.net/forecast/185a348f7621beb2c9fcfb4b8cb110d7/35.2271,-80.8431';
+
+            $.ajax({
+              url: queryURL,
+              type: 'GET'
+            }).done(function(response) {
+              console.log(response);
+              var weather = response.body.summary;
+              console.log(weather);
+            });
+          
       });
 
       function distance(origin, destination){
