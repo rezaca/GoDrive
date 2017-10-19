@@ -46,9 +46,6 @@ form {
 }
 
 
-
-
-
 /* Custom Horizontal Rule */
 
 hr.small {
@@ -219,6 +216,10 @@ footer {
 
 /* Random */
 
+#log {
+    margin-top: 30px;
+}
+
 #add-log {
     width: 100px;
     height: 50px;
@@ -239,22 +240,3 @@ footer {
     padding: 15px 20px;
 }
 
-/* Sign In / Out */
-
-.g-signin2 {
-    position: relative;
-    left: 45.6%;
-}
-
-#signOut {
-    margin-top: 40px;
-}
-
-#userDisplay {
-    border: 1px solid black;
-    width: 200px;
-    height: 200px;
-    position: relative;
-    bottom: 200px;
-    left: 5%;
-}

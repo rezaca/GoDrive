@@ -180,26 +180,26 @@ var database = firebase.database();
 
 // Log in/ Create account 
 
-function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+// function onSignIn(googleUser) {
+//     var profile = googleUser.getBasicProfile();
+//     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+//     console.log('Name: ' + profile.getName());
+//     console.log('Image URL: ' + profile.getImageUrl());
+//     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
-    $("#userDisplay").html(profile.getName());
-    $("#userDisplay").html("<img class='userImg'>" + profile.getImageUrl());
-    $("#userDisplay").html(profile.getEmail());
+//     $("#userDisplay").html(profile.getName());
+//     $("#userDisplay").html("<img class='userImg'>" + profile.getImageUrl());
+//     $("#userDisplay").html(profile.getEmail());
 
-}
+// }
 
-$("#signOut").on("click", function (event) {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-        console.log('User signed out.');
-        $("#userDisplay").empty();
-    });
-});
+// $("#signOut").on("click", function (event) {
+//     var auth2 = gapi.auth2.getAuthInstance();
+//     auth2.signOut().then(function () {
+//         console.log('User signed out.');
+//         $("#userDisplay").empty();
+//     });
+// });
 
 // Button for adding users account
 // $("#add-account").on("click", function (event) {
@@ -272,7 +272,7 @@ $("#add-log").on("click", function (event) {
 
     var timeOfDay = $("#timeOfDay").val().trim();
     var dateInput = $("#dateInput").val().trim();
-    var totalHours = $("#totalHours").val().trim();
+    var totalHours = $("#logHours").val().trim();
     var weatherInput = $("#weatherInput").val().trim();
     var driveType = $("#driveType").val().trim();
 
@@ -294,21 +294,10 @@ $("#add-log").on("click", function (event) {
 
     $("#timeOfDay").val("");
     $("#dateInput").val("");
-    $("#totalHours").val("");
+    $("#logHours").val("");
     $("#weatherInput").val("");
     $("#driveType").val("");
 
-
-});
-
-$('#loginForm').submit(function () {
-
-    if ($.trim($("#dateInput").val()) === "" || $.trim($("#start").val()) === "" || $.trim($("#end").val()) === "" || $.trim($("#timeOfDay").val()) === "" || $.trim($("#weatherInput").val()) === "" || $.trim($("#driveType").val()) === "" || $.trim($("#totalHours").val()) === "") {
-
-        alert('Please enter Username and Password.');
-        return false;
-
-    }
 
 });
 
@@ -331,6 +320,8 @@ database.ref().on("child_added", function (childSnapshot, prevChildKey) {
 
 
 });
+
+
 
 
 

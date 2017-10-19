@@ -79,14 +79,6 @@
     <header class="header" id="top">
         <div class="text-vertical-center">
             <img class="img" src="assets/images/godrive.png" alt="GoDrive Logo" style="width:auto;height:150px;">
-            <br>
-            <br>
-
-            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-
-            <button id="signOut" class="btn btn danger">Sign out</button>
-
-            <div id="userDisplay"></div>
 
         </div>
     </header>
@@ -119,34 +111,6 @@
 
     <!-- Callout -->
     <aside class="callout">
-        <div class="row" id="log">
-            <div class="col-md-12">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Current Driver's Log</h3>
-                    </div>
-                    <div class="panel-body">
-                        <table class="table table-hover table-responsive" id="log-Table" style="background-color: none !important; color: none">
-                            <thead>
-                                <tr>
-                                    <th>Date (MM/DD)</th>
-                                    <th>Day/Night</th>
-                                    <th>Sunny/Rain</th>
-                                    <th>Highway/City</th>
-                                    <th>Total Hours</th>
-                                </tr>
-                            </thead>
-                            <tbody id="logTable">
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- Panel Body End -->
-                </div>
-                <!-- Panel Default End -->
-            </div>
-            <!-- Col End -->
-
-        </div>
 
         <div class="row">
 
@@ -194,7 +158,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="totalHours">Total Hours (Round to nearest half hour)</label>
+                                <label for="logHours">Hours (Round to nearest half hour)</label>
                                 <input type="text" class="form-control" id="totalHours" placeholder="1.5">
                             </div>
 
@@ -226,6 +190,36 @@
             </div>
 
         </div>
+
+        <div class="row" id="log">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Current Driver's Log</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-hover table-responsive" id="log-Table" style="background-color: none !important; color: none">
+                            <thead>
+                                <tr>
+                                    <th>Date (MM/DD)</th>
+                                    <th>Day/Night</th>
+                                    <th>Sunny/Rain</th>
+                                    <th>Highway/City</th>
+                                    <th>Total Hours</th>
+                                </tr>
+                            </thead>
+                            <tbody id="logTable">
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Panel Body End -->
+                </div>
+                <!-- Panel Default End -->
+            </div>
+            <!-- Col End -->
+
+        </div>
+
     </aside>
 
 
