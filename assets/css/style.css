@@ -280,3 +280,12 @@ footer {
     padding: 15px 20px;
 }
 
+/* Google Sign In / Out */
+
+.g-signin2 {
+   text-align: center; 
+}
+
+#signOut {
+    margin-top: 20px;
+}
