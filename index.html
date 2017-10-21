@@ -124,10 +124,10 @@
                     </div>
                     <div class="panel-body">
 
-                        <form id="Form">
+                        <form id="Form" name="Form" action="/action_page_post.php" onsubmit="return validateForm()" method="post">
                             <div class="form-group">
                                 <label for="dateInput">Date (MM/DD) </label>
-                                <input type="text" class="form-control" id="dateInput" placeholder="01/01">
+                                <input type="text" class="form-control" id="dateInput" placeholder="01/01" required>
                             </div>
 
                             <div class="form-group">
@@ -148,7 +148,7 @@
                             <div class="form-group">
                                 <label for="weatherInput">Clear or Rain?</label>
                                 <!-- <label class="milTime">&nbsp;(HH:mm - Military)</label> -->
-                                <input type="" class="form-control" id="weatherInput" placeholder="Rain">
+                                <input type="" class="form-control" id="weatherInput" placeholder="Rain" required>
                             </div>
 
                             <div class="form-group">
@@ -158,7 +158,7 @@
 
                             <div class="form-group">
                                 <label for="logHours">Hours (Round to nearest half hour)</label>
-                                <input type="text" class="form-control" id="totalHours" placeholder=".5">
+                                <input type="text" class="form-control" id="logHours" placeholder=".5">
                             </div>
 
                             <button type="submit" class="btn btn-default" id="add-log">Submit</button>
@@ -211,7 +211,7 @@
                                     <th>Day/Night</th>
                                     <th>Sunny/Rain</th>
                                     <th>Highway/City</th>
-                                    <th>Total Hours</th>
+                                    <th>Hours</th>
                                 </tr>
                             </thead>
                             <tbody id="logTable">
@@ -223,6 +223,22 @@
                 <!-- Panel Default End -->
             </div>
             <!-- Col End -->
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-12">
+
+                <div class="hoursCounter">
+
+                    <labal for="counter">Total Hours: </labal>
+
+                    <span id="counter">0</span>
+
+                </div>
+
+            </div>
 
         </div>
 
