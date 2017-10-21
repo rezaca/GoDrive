@@ -148,7 +148,9 @@ function initMap() {
             avoidHighways: false,
             avoidTolls: false,
         }, function (response) {
-            console.log("distance", response)
+            console.log("distance", response);
+            var timeDriven = response.rows[0].elements[0].duration.text;
+            $("#timeDriven").html('<h2> Time of Drive: ' + timeDriven + '</h2>');
         });
     }
 }
