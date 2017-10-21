@@ -153,6 +153,11 @@ function initMap() {
     }
 }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 39ba6938f5155657cadbf6467e6c52e2b51a03b1
 $('#start').change(function () {
     var location = $('#start').val();
     var key = 'e9f3461c440eeabe8d545cb0168ef9e9';
