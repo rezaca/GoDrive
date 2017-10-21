@@ -117,7 +117,7 @@ function initMap() {
     });
 
     // Set destination, origin and travel mode.
-    $('#end').change(function() {
+    $('#timeOfDay').change(function() {
 
         var request = {
             destination: document.getElementById('end').value,
