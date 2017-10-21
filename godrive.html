@@ -52,6 +52,11 @@
       <br>
       <label class="lead">End: </label>
         <input class="form-control" id="end" placeholder="Enter a location" type="text">
+      <div>
+        <button>Submit</button>
+      </div>
+      <div class="container" id="weather">
+      </div>
     </div>
 
     <div id="infowindow-content">
@@ -60,7 +65,9 @@
       <span id="place-address"></span>
     </div>
 
-    <button>Submit</button>
+    <div>
+        <p><a href="https://darksky.net/poweredby/">Powered by Dark Sky</p>
+      </div>
 
     &nbsp;
     <div id="results">
@@ -200,7 +207,39 @@
               directionsDisplay.setDirections(response);
               distance(request.origin, request.destination);
             }
+
+          var location = request.origin;
+          var key = 'e9f3461c440eeabe8d545cb0168ef9e9';
+          var queryURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + location + '&APPID=' + key + '&units=imperial';
+
+          $.ajax({
+            method: 'POST',
+            url: queryURL,
+            type: 'json'
+          })
+          .done(function(response) {
+            console.log(response);
+            var weather = response.weather[0].description;
+            $("#weather").html(weather);
           });
+          
+
+          });
+
+          // var key = '185a348f7621beb2c9fcfb4b8cb110d7';
+          // var queryURL = 'http://cors-proxy.htmldriven.com/?url=https://api.darksky.net/forecast/185a348f7621beb2c9fcfb4b8cb110d7/35.2271,-80.8431';
+
+          //   $.ajax({
+          //     url: queryURL,
+          //     type: 'GET'
+          //   }).done(function(response) {
+          //     console.log(response);
+          //     var weather = response.body.summary;
+          //     console.log(weather);
+          //   });
+          
+          // var key = 'e9f3461c440eeabe8d545cb0168ef9e9'
+
       });
 
       function distance(origin, destination){
