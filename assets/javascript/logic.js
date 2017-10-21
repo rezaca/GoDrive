@@ -106,10 +106,10 @@ function initMap() {
             ].join(' ');
         }
 
-        infowindowContent.children['place-icon'].src = place.icon;
-        infowindowContent.children['place-name'].textContent = place.name;
-        infowindowContent.children['place-address'].textContent = address;
-        infowindow.open(map, marker);
+        // infowindowContent.children['place-icon'].src = place.icon;
+        // infowindowContent.children['place-name'].textContent = place.name;
+        // infowindowContent.children['place-address'].textContent = address;
+        // infowindow.open(map, marker);
     });
 
     var directionsDisplay = new google.maps.DirectionsRenderer({
@@ -135,6 +135,7 @@ function initMap() {
                 distance(request.origin, request.destination);
             }
         });
+
     });
 
     function distance(origin, destination) {
@@ -150,9 +151,26 @@ function initMap() {
             console.log("distance", response)
         });
     }
-
 }
 
+    $('#start').change(function(){
+        var location = $('#start').val();
+        var key = 'e9f3461c440eeabe8d545cb0168ef9e9';
+        var queryURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + location + '&APPID=' + key + '&units=imperial';
+
+          $.ajax({
+            method: 'POST',
+            url: queryURL,
+            type: 'json'
+          })
+          .done(function(response) {
+            console.log(response);
+            var weather = response.weather[0].main;
+            var weatherIcon = response.weather[0].icon;
+            $("#weather").html('<h2> Weather: ' + weather + '</h2>');
+            // $("#weather").prepend(weatherIcon)
+          });
+    });
 // var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=charlotte&APPID=7a900c6b9bfad12905d2d07c66eaa183";
 
 // $.ajax({
