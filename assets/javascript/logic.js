@@ -153,18 +153,6 @@ function initMap() {
 
 }
 
-// var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=charlotte&APPID=7a900c6b9bfad12905d2d07c66eaa183";
-
-// $.ajax({
-//     url: queryURL,
-//     method: "GET"
-// }).done(function (response) {
-//     console.log(response);
-
-
-// });
-
-
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyCjHRGiUjezd6cX9yf7Ci-U4drbZOIxXa4",
@@ -178,92 +166,6 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-// Log in/ Create account 
-
-// function onSignIn(googleUser) {
-//     var profile = googleUser.getBasicProfile();
-//     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-//     console.log('Name: ' + profile.getName());
-//     console.log('Image URL: ' + profile.getImageUrl());
-//     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-
-//     $("#userDisplay").html(profile.getName());
-//     $("#userDisplay").html("<img class='userImg'>" + profile.getImageUrl());
-//     $("#userDisplay").html(profile.getEmail());
-
-// }
-
-// $("#signOut").on("click", function (event) {
-//     var auth2 = gapi.auth2.getAuthInstance();
-//     auth2.signOut().then(function () {
-//         console.log('User signed out.');
-//         $("#userDisplay").empty();
-//     });
-// });
-
-// Button for adding users account
-// $("#add-account").on("click", function (event) {
-
-//     event.preventDefault();
-
-//     // Grabs users input
-//     var accName = $("#account-name").val().trim();
-//     var accEmail = $("#account-email").val().trim();
-//     var accPassword = $("#account-password").val().trim();
-//     var verifyPassword = $("#verifyPassword").val().trim();
-
-//     // Creates local object for holding account data
-//     var newAccount = {
-//         name: accName,
-//         email: accEmail,
-//         password: accPassword
-//     }
-
-//     // Uploads employee data to the database
-//     database.ref().push(newAccount);
-
-//     console.log(newAccount.name);
-//     console.log(newAccount.email);
-//     console.log(newAccount.password);
-
-//     $("#account-name").val("");
-//     $("#account-email").val("");
-//     $("#account-password").val("");
-
-// });
-
-// Button to add users requirements 
-
-// $("#add-requirements").on("click", function (event) {
-
-//     event.preventDefault();
-
-//     var totalHours = $("#required-hours").val().trim();
-//     var nightHours = $("#required-nightHours").val().trim();
-//     var highwayHours = $("#required-hwyHours").val().trim();
-//     var rainHours = $("#required-rainHours").val().trim();
-
-//     newRequirements = {
-//         hours: totalHours,
-//         night: nightHours,
-//         highway: highwayHours,
-//         rain: rainHours
-//     }
-
-//     database.ref().push(newRequirements);
-
-//     console.log(newRequirements.hours);
-//     console.log(newRequirements.night);
-//     console.log(newRequirements.highway);
-//     console.log(newRequirements.rain);
-
-//     $("#required-hours").val("");
-//     $("#required-nightHours").val("");
-//     $("#required-hwyHours").val("");
-//     $("#required-rainHours").val("");
-
-// });
-
 // Button for adding users log 
 
 $("#add-log").on("click", function (event) {
@@ -272,16 +174,16 @@ $("#add-log").on("click", function (event) {
 
     var timeOfDay = $("#timeOfDay").val().trim();
     var dateInput = $("#dateInput").val().trim();
-    var totalHours = $("#logHours").val().trim();
+    var logHours = $("#logHours").val().trim();
     var weatherInput = $("#weatherInput").val().trim();
     var driveType = $("#driveType").val().trim();
 
     newLog = {
         timeOfDay: timeOfDay,
         date: dateInput,
-        hours: totalHours,
+        hours: logHours,
         weather: weatherInput,
-        driveType: driveType
+        driveType: driveType,
     }
 
     database.ref().push(newLog);
@@ -298,26 +200,19 @@ $("#add-log").on("click", function (event) {
     $("#weatherInput").val("");
     $("#driveType").val("");
 
-
 });
-
-
 
 // Firebase reference 
 database.ref().on("child_added", function (childSnapshot, prevChildKey) {
 
-    // var accName = childSnapshot.val().name;
-    // var accEmail = childSnapshot.val().email;
-    // var accPassword = childSnapshot.val().password;
-
     var logDate = childSnapshot.val().date;
     var timeOfDay = childSnapshot.val().timeOfDay;
-    var totalHours = childSnapshot.val().hours;
+    var logHours = childSnapshot.val().hours;
     var logWeather = childSnapshot.val().weather;
     var driveType = childSnapshot.val().driveType;
+    var totalHours = childSnapshot.val().totalHours;
 
-    $("#logTable").append("<tr><td>" + logDate + "</td><td>" + timeOfDay + "</td><td>" + logWeather + "</td><td>" + driveType + "</td><td>" + totalHours + "</td></tr>");
-
+    $("#logTable").append("<tr><td>" + logDate + "</td><td>" + timeOfDay + "</td><td>" + logWeather + "</td><td>" + driveType + "</td><td>" + logHours + "</td></tr>");
 
 });
 
